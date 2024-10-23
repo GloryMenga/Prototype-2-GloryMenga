@@ -1,11 +1,14 @@
+import React from 'react';
+import CanvasEffect from './components/CanvasEffect.jsx';
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <h1>Test</h1>
-      <p>aofklksqj lkjsqdfk ldfkqjmflk sqfmlksj </p>
+      <div className="App">
+        <CanvasEffect />
+      </div>
     </>
   )
 }

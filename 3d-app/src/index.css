@@ -40,7 +40,8 @@ h1{
 }
 h2{
   font-family: "Cutive Mono",sans-serif;
-  font-size: 30px;
+  letter-spacing: 1px;
+  font-size: 33px;
 }
 p{
   font-family: "Cutive Mono",sans-serif;
@@ -51,8 +52,8 @@ p{
 }
 .sep{
   border: 0;
-  width: 3em;
-  height: 1px;
+  width: 4em;
+  height: 2px;
   margin: 1em 0;
   background-color: rgba(255,255,255,0.4);
 }

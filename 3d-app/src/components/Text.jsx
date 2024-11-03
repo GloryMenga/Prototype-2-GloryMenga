@@ -32,7 +32,7 @@ function Text() {
         </div>
       </div>
       {sections.map((section, index) => (
-        <InfoSection key={index} title={section.title} content={section.content} />
+        <InfoSection key={index} title={section.title} content={section.content} index={index} />
       ))}
     </>
   );
@@ -48,12 +48,12 @@ const sections = [
   { title: "SUPPORTING PARKINSON'S RESEARCH", content: "The Michael J. Fox Foundation, established in 2000, is dedicated to accelerating research aimed at finding a cure for Parkinson's disease, further underscoring the meaningful connection between the Nike Mag and the cause it supports." }
 ];
 
-function InfoSection({ title, content }) {
+function InfoSection({ title, content, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-20%" });
 
   return (
-    <div id='info'>
+    <div id='info' data-index={index}>
       <motion.div
         ref={ref}
         className='info-txt'

@@ -8,7 +8,6 @@ export default function NikeAirMagModel(props) {
   useEffect(() => {
     if (meshRef.current) {
       
-
       // Apply metallic and shiny properties to the model's materials
       meshRef.current.traverse((child) => {
         if (child.isMesh) {

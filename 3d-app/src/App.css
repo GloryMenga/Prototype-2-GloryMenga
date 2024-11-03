@@ -17,4 +17,8 @@
     top: 0;
     padding: 80px;
     font-size: 15px;
+    opacity: 0; 
+    transform: translateY(20px);
 }
+
+  

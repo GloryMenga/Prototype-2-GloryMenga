@@ -1,4 +1,5 @@
 import './App.css';
+import ProgressBar from './components/ProgressBar.jsx';
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import NikeAirMagModel from './components/Model.jsx';

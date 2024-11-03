@@ -17,7 +17,7 @@ function Text (){
               onInit={(typewriter) => {
                   typewriter
                     .pauseFor(1000) 
-                    .typeString('Scroll to see the history of that shoe') 
+                    .typeString('Scroll to see the history of the Nike air mag') 
                     .pauseFor(3000) 
                     .start(); 
                 }}

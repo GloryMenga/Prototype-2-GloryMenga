@@ -11,6 +11,9 @@
   margin: 0; 
   padding: 0;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 .container{
   display: flex;
   flex-direction: row;
@@ -41,11 +44,11 @@ h1{
 h2{
   font-family: "Cutive Mono",sans-serif;
   letter-spacing: 1px;
-  font-size: 33px;
+  font-size: 28px;
 }
 p{
   font-family: "Cutive Mono",sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 20px;
   font-weight: 300;
   line-height: 26px;
@@ -57,3 +60,4 @@ p{
   margin: 1em 0;
   background-color: rgba(255,255,255,0.4);
 }
+

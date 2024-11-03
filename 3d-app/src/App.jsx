@@ -2,30 +2,33 @@ import './App.css';
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import NikeAirMagModel from './components/Model.jsx';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Environment } from '@react-three/drei';
+import Text from './components/Text.jsx';
 
 function App() {
   return (
     <>
-      {/* 3D Model Canvas */}
-      <div className="canvas-container">
-        <Canvas camera={{ position: [3, 1, 0], fov: 50 }}>
-          {/* Ambient Light */}
-          <ambientLight intensity={0.6} />
-          {/* Directional Light */}
-          <directionalLight position={[2, 5, 2]} intensity={1} castShadow />
-          {/* Point Light */}
-          <pointLight position={[-3, 1, -3]} intensity={0.5} color="#FFD700" />
+      <div className="container">
+        <div className="canvas-container">
+          <Canvas camera={{ position: [3, 1, 2], fov: 40 }}>
+            {/* Lighting */}
+            <ambientLight intensity={1} />
+            <directionalLight position={[2, 5, 3]} intensity={0.2} castShadow />
+            <hemisphereLight skyColor="#6495ED" groundColor="#B2B2B2" intensity={0} />
+            <pointLight position={[-3, 1, -3]} intensity={1} color="#6495ED" />
 
-          {/* Model and Controls */}
-          <NikeAirMagModel position={[0, -0.5, 0]} scale={[2, 2, 2]}  />
-          <OrbitControls />
-        </Canvas>
-      </div>
-      <div>
-        
-      </div>
+            {/* Environment map for reflections */}
+            <Environment preset="city" background={false} />
 
+            {/* Model and Controls */}
+            <NikeAirMagModel position={[0, -0.4, -0.5]} scale={[2, 2, 2]} />
+            <OrbitControls target={[0, 0, 0]} enableDamping={true} dampingFactor={0.1}/>
+          </Canvas>
+        </div>
+        <div className="Text">
+          <Text />
+        </div>
+      </div>
     </>
   );
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
 @font-face {
   font-family: "Helvetica Neue";
   src: url(./fonts/HelveticaNeueBlack.otf);
@@ -11,13 +11,20 @@
   margin: 0; 
   padding: 0;
 }
+.container{
+  display: flex;
+  flex-direction: row;
+}
 .canvas-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 50%;
   height: 100vh;
-  z-index: -1; 
+}
+.Text{
+  width: 50%;
+  margin-left: 50%;
 }
 body{
   margin: 0;
@@ -28,10 +35,24 @@ body{
 h1{
   font-family: "Helvetica Neue";
   letter-spacing: 4px;
+  font-size: 80px;
+  margin-bottom: 4px;
 }
 h2{
-  font-family: "HelveticaNowVar";
+  font-family: "Cutive Mono",sans-serif;
+  font-size: 30px;
 }
 p{
-  font-family: "lato",sans-serif;
+  font-family: "Cutive Mono",sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 300;
+  line-height: 26px;
+}
+.sep{
+  border: 0;
+  width: 3em;
+  height: 1px;
+  margin: 1em 0;
+  background-color: rgba(255,255,255,0.4);
 }

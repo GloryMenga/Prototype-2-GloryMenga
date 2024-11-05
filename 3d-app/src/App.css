@@ -20,5 +20,20 @@
     opacity: 0; 
     transform: translateY(20px);
 }
-
-  
+.end{
+    display: flex;
+    justify-content: flex-start;
+    padding: 100px 90px;
+}
+.end a{
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+.end a:hover{
+    font-size: 32px;
+    color: grey;
+}
+.abc{
+    background-color: red;
+    height: 200px;
+}

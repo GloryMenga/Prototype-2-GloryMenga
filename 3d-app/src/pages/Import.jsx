@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
+import { Leva, useControls } from 'leva';
 
 function Import() {
     const navigate = useNavigate();
@@ -16,7 +17,6 @@ function Import() {
             setShowModel(true);
         }
     };
-
 
     const resetImport = () => {
         setModelUrl(null);
@@ -39,6 +39,7 @@ function Import() {
                         <Model url={modelUrl} />
                         <OrbitControls />
                     </Canvas>
+                    <Leva collapsed />
                     <div className="import-another" onClick={resetImport}>
                         <p>Import another 3D object</p>
                     </div>
@@ -52,19 +53,31 @@ function Model({ url }) {
     const { scene } = useGLTF(url); 
     const meshRef = React.useRef();
 
-    const predefinedPosition = [0, -0.5, -1]; 
-    const predefinedScale = [1, 1, 1]; 
+    // Leva controls
+    const { x, y, scale, rotationSpeed, floatingSpeed } = useControls({
+        x: { value: 0, min: -5, max: 5, step: 0.1 },
+        y: { value: -0.5, min: -5, max: 5, step: 0.1 },
+        scale: { value: 1, min: 0.1, max: 5, step: 0.1 },
+        rotationSpeed: { value: 0.01, min: 0, max: 0.1, step: 0.01 },
+        floatingSpeed: { value: 0.5, min: 0, max: 5, step: 0.1 }
+    });
 
     useFrame(({ clock }) => {
         if (meshRef.current) {
-            meshRef.current.rotation.y += 0.01; 
-
+            meshRef.current.rotation.y += rotationSpeed;
             const time = clock.getElapsedTime();
-            meshRef.current.position.y = Math.sin(time) * 0.5; 
+            meshRef.current.position.y = y + Math.sin(time * floatingSpeed) * 0.5;
         }
     });
 
-    return <primitive ref={meshRef} object={scene} position={predefinedPosition} scale={predefinedScale} />;
+    return (
+        <primitive
+            ref={meshRef}
+            object={scene}
+            position={[x, y, -1]} 
+            scale={[scale, scale, scale]} 
+        />
+    );
 }
 
 export default Import;
